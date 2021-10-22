@@ -1,0 +1,97 @@
+---
+name: Thiago C.L. Silveira
+date: "`r format(Sys.time(), '%B, %Y')`"
+profilepic: eu2m.jpg
+position: Postdoctoral fellow in Ecology-UFSC
+address: Florianópolis, Santa Catarina-BR
+phone: +55 48 99113 5385
+email: silveira.tcl@gmail.com
+headcolor: 009ACD
+output: vitae::awesomecv
+docname: Curriculum Vitae
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(kableExtra)
+```
+
+# About me 
+
+Graduated in Biological Sciences, Master's in Animal Biology (UFRGS) and Ph.D in Zoology (PUCRS - Sandwich Doctorate in Walles-UK) . I currently work as a post-doc felow in Ecology on Post Graduation Program in Ecology (UFSC). I have experience in aquatic ecology whith emphasis in invertebrates, fishes, spatial models, and niche models. Also, I developed throughout my career programing skills using the [**R software**](cran.r-project.org) in my research field, which enhanced my scientific thinking and influenced the way I teach in my lectures. My teaching experience is in postgraduation level, ranging from statistics and ecological practices in field ecology.         
+
+# Skills & Interests
+
+My background is in biological sciences, with enphasis in zoology and ecology. As a post-doc fellow I was encouraged to teach along five years and this experience gave me selfconfidence in class. The English idiom is part of my routine as a post-doc fellow, mainly for scientific reading and writing. My english speaking skills improved in 2019 when I was one of the lectures in a course entirely taught in English at UFSC. I consider myself fluent in English in most situations, also believe there is always room for improvement. I believe I can contribute and grow professionally at EIF. 
+
+# Selected Teaching Experience
+
+```{r}
+library(tibble)
+tribble(
+  ~ Class, ~ Year, ~ Institution, ~ Where,
+  "Ecology lectures (taught in English)", "2019-2019", "UFSC", "Florianópolis-SC",
+  "Species Distributions and Niche Modelling (taught in Portuguese)", "2016-2018", "UFSC", "Florianópolis-SC",
+  "Statistics applied to Environmental Analysis (taught in Portuguese)", "2016-2019", "UFSC", "Florianópolis-SC",
+  "Introduction to Multivariate Analisys (taught in Portuguese)", "2016-2019", "UFSC", "Florianópolis-SC",
+  "Field Ecology (taught in Portuguese)", "2016-2019", "UFSC", "Florianópolis",
+) %>% 
+  detailed_entries(Class, Year, Institution, Where)
+```
+ 
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Ciências Biológicas", "1999-2004", "PUCRS", "Porto Alegre, RS",
+  "Mestrado em Biologia Animal", "2005-2007", "UFRGS", "Porto Alegre, RS",
+  "Doutorado em Zoologia", "2011-2015", "PUCRS", "Porto Alegre, RS",
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+\pagebreak
+
+# Idioms
+
+```{r idioms}
+data.frame(
+  Skill = c("Reading", "Writing", "Listening","Speaking"),
+  Portuguese = cell_spec(c(rep("Native", 4)), 'latex', color = '#4cb8dc'),
+  English = cell_spec(c("C1","B1","C1","B2"), 'latex', color = '#009acd'),
+  Spanish = cell_spec(c("B1","A2","B1","A2"), 'latex', color = '#005c7b')
+) %>%
+  kable(booktabs = T, align = 'c', escape = F, format = "latex") %>%
+  kable_styling(full_width = F, font_size = 12) %>% #, latex_options = 'striped') %>%
+  footnote(
+    footnote_as_chunk = T,
+    general_title = " ",
+    general = "\\\\tiny CEFR: A1/A2: Basic User. B1/B2: Independent User. C1/C2: Proficient User/ TOEFL-IBT 88 pts (2014)/ Spanish Proficiency Test - PUCRS (2013)",
+    escape = F
+  ) %>%
+  column_spec(column = 1:6, width = '2.4cm') %>% 
+  add_header_above(' ',line = F) %>%
+  row_spec(0, extra_latex_after = "\\arrayrulecolor{white}\\hline")
+```
+
+# Technical Skills
+
+```{r}
+tribble(
+   ~type, ~ software, 
+  "Programing", "R language",
+  "Software", "QGIS -- RStudio -- Inkscape -- Mendeley",
+  "Other", "Markdown -- QuickTime -- Moodle"
+) %>% 
+  detailed_entries(what = software, with = type, .protect=FALSE)
+```
+
+
+
+# Additional Information
+
+To access my complete CV, please go to my Lattes CV on [**http://lattes.cnpq.br/5960267776845701**](http://lattes.cnpq.br/5960267776845701). If you want a personal reference, please get in touch with Dra. Andrea Santarosa Freire **(freireandreas@gmail.com)**, coordinator of the Post Graduation Program in Ecology - UFSC.  
+

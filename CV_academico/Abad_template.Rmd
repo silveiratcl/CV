@@ -1,0 +1,208 @@
+---
+name: Thiago Cesar L. Silveira
+position: "Pesquisador | Biólogo | Dr. Zoologia"
+address: |
+         | Florianópolis - Brasil
+         | Brasileiro -  18/05/1978
+profilepic: eu2.jpg
+phone: +55 48 99113 5385
+email: "silveira.tcl@gmail.com"
+researchgate: Thiago_Cesar_Silveira2
+orcid: 0000-0002-3163-479X
+www: lattes.cnpq.br/5960267776845701
+headcolor: 009ACD
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+always_allow_html: yes
+header-includes:
+  \usepackage{multicol}
+  \usepackage{colortbl}
+  \usepackage{hhline}
+  \definecolor{light-gray}{gray}{0.95}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(ggplot2)
+library(dplyr)
+library(sf)
+library(rworldmap)
+library(stplanr)
+library(ggrepel)
+library(emojifont)
+library(fontawesome)
+library(kableExtra)
+library(huxtable)
+library(gridExtra)
+#https://github.com/loreabad6/R-CV based on
+```
+# Minha Caminhada
+```{r edu_plot,fig.align='center', fig.width=6.5, fig.height=3, fig.showtext=TRUE}
+load.fontawesome()
+uni <- fontawesome('fa-university')
+work <- fontawesome('fa-briefcase')
+world <- getMap(resolution = "high")
+world <- world %>% st_as_sf()
+cities <- st_sfc(
+  st_point(c(-54.3172281, -30.1087957)),
+  st_point(c(-4.1777092, 53.2209389)),
+  st_point(c(-38.614785, -12.735823)),
+  st_point(c(-45.7504738,-27.5713144))
+  ) %>%
+  st_sf(name = c('Porto Alegre, RS', 'Bangor, UK','Madre de Deus, BA' , 'Florianópolis, SC')) %>%
+  st_set_crs(4326) %>%
+  mutate(label = c(uni, uni,work, work))
+
+routes <- cities %>%
+  points2line() %>%
+  slice(c(2,7,12)) %>%
+  st_segmentize(units::set_units(200, m))
+ggplot(data = world) +
+  geom_sf(color = 'white', lwd = 0.1) +
+  xlab("") + ylab("") +
+  geom_sf_text(
+    data = cities,
+    aes(label = label),
+    size = 4,
+    color = '#009ACD',
+    family = "fontawesome-webfont"
+  ) +
+  geom_sf(
+    data = routes, color = '#009ACD', size = 0.5, alpha = 0.5, linetype = 'dotted'
+  ) + #robin
+  coord_sf(crs = '+proj=robin', xlim = c(-15000000, 16000000), ylim = c(-5800000,8100000)) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_line(color = 'transparent'),
+    plot.margin = margin(-1, 0, -1, 0, "cm"),
+    axis.text = element_blank(),
+    axis.title = element_blank()
+  )
+```
+# Sobre mim
+Possuo graduação em Ciências Biológicas, Mestrado em Biologia Animal (UFRGS) e Doutorado em Zoologia (PUCRS - Doutorado Sanduíche/Gales-UK). Atualmente trabalho como bolsista de pós-doutorado PNPD/CAPES no Programa de Pós-Graduação em Ecologia da UFSC. Tenho experiência na área de ecologia aquática com ênfase em invertebrados, peixes, modelos espaciais e de nicho. Tenho experiência na produção de trabalhos técnicos envolvendo inventários de fauna aquática marinha e análise de bancos de dados. Minha experiência de ensino é em nível de pós-graduação, variando entre estatística aplicada à ecologia, bancos de dados e práticas ecológicas.
+
+# Formação
+```{r}
+tribble(
+   ~ Year, ~ Institution,~ Degree, ~ Where,
+  "Ciências Biológicas", "1999-2004", "PUCRS", "Porto Alegre-RS",
+  "Mestrado em Biologia Animal", "2005-2007", "UFRGS", "Porto Alegre-RS",
+  "Doutorado em Zoologia (Período Sanduíche - Bangor - UK)", "2011-2015", "PUCRS", "Porto Alegre-RS"
+) %>% 
+  detailed_entries( Degree, Institution, Year, Where)
+```
+
+# Formação Complementar
+```{r}
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Introdução à Modelagem Hierárquica", "2019-2019", "UFRGS", "Porto Alegre-RS (45h)",
+  "Mergulho Avançado - PADI", "2017-2017", "PADI", "Florianópolis-SC (16h)",
+  "Research Survey on the Research Vessel Prince Madog", "2014-2014", "BANGOR University", "Bangor-UK (100h)",
+  "Species distributions models: concepts, methods, applications, and challenges", "2014-2014", "Imperial College", "Ascot-UK (75h)",
+  "Geoprocessamento com o SIG livre QUANTUM GIS", "2013-2013", "GEOSABER", "São Paulo-SP (24h)" 
+) %>% 
+  detailed_entries( Institution, Year, Degree, Where)
+```
+
+# Publicações Selecionadas
+```{r }
+tribble(
+  ~ Autores, ~ Ano, ~ Título, ~ Revista,
+  "das Neves Lopes M, Decarli CJ, Pinheiro-Silva L, Silveira TCL, Leite NK, Petrucio MM", "2020","Urbanization increases carbon concentration and pCO2 in subtropical streams.", "Environ Sci Pollut Res, 1",
+  "Gouvêa LP, Assis J, Gurgel CFD, Serrão EA, Silveira TCL, Santos R, et al.","2020" ,"Golden carbon of Sargassum forests revealed as an opportunity for climate change mitigation.", "Sci Total Environ, 138745",
+  "Fontoura NF, Schulz UH, Alves TP, Silveira TCL, Pereira JJ, Antonetti DA.","2019", "How Far Upstream: A Review of Estuary-Fresh Water Fish Movements in a Large Neotropical Basin.", "Front Mar Sci,6,39.", 
+  "Agrelo M, Daura‐Jorge FG, Bezamat C, Silveira TCL, Volkmer de Castilho P, Rodrigues Pires JS, et al.", "2019", "Spatial behavioural response of coastal bottlenose dolphins to habitat disturbance in southern Brazil", "Aquat Conserv Mar Freshw Ecosyst 29(11), 1949 ",
+  "Batista MB, Anderson AB, Sanches PF, Polito PS, Silveira TCL, Velez-Rubio GM, et al.", "2018", "Kelps’ long-distance dispersal: Role of Ecological/Oceanographic processes and implications to marine forest conservation", "Diversity, 10(1),11",
+  "Teixeira KO, Silveira TCL, Harter-marques B.", "2018", "Different Responses in Geographic Range Shifts and Increase of Niche Overlap in Future.",  "Sociobiology 65(4),630",
+  "Dechoum M de S, Suhs RB, Giehl ELH, Silveira TCL, Ziller SR.","2018", "Citizen engagement in the management of non-native invasive trees: does it make a difference?", "Biol Invasions 21(1), 175",
+  "Silveira TCL, Gama AM da S, Alves TP, Fontoura NF.","2016" ,"Modeling habitat suitability of the invasive clam Corbicula fluminea in a Neotropical shallow lagoon, southern Brazil",  "Braz J Biol, 76,718", 
+  "Silveira TCL, Rodrigues GG, Souza GPC de, Würdig NL.","2012",  "Effect of Typha domingensis cutting : response of benthic macroinvertebrates and macrophyte regeneration.",  "Biota Neotrop 12,122",
+  "Silveira TCL, Rodrigues GG, Souza GPC De, Würdig NL.","2011", "Effects of cutting disturbance in Schoenoplectus californicus (C.A. Mey.) Soják on the benthic macroinvertebrates", "Acta Sci Biol Sci, 33,31" 
+) %>% 
+  detailed_entries(Autores,  Ano,  Título,  Revista)
+```
+
+# Principais Experiências Docentes
+```{r }
+library(tibble)
+tribble(
+  ~ Disciplina, ~ Ano, ~ Instituição, ~ Local,
+  "Ecology lectures (Ministrada em Inglês)", "2019-2019", "UFSC", "Florianópolis-SC",
+  "Distribuição de Espécies e Modelagem de Nicho (Português)", "2016-2018", "UFSC", "Florianópolis-SC",
+  "Estatística Aplicada a Análise Ambiental (Português)", "2016-2019", "UFSC",   "Florianópolis-SC",
+  "Introducão à Análise Multivariada (Português)", "2016-2019", "UFSC", "Florianópolis-SC",
+  "Ecologia de Campo (Português)", "2016-2019", "UFSC", "Florianópolis-SC",
+  "Organização de Bancos de Dados para Análises Ecológicas (Português/Curso de Curta Duração)", "2017-2017", "UFSC", "Florianópolis-SC"
+  ) %>% 
+  detailed_entries( Instituição, Ano, Disciplina, Local)
+```
+
+# Principais Trabalhos Técnicos
+```{r }
+tribble(
+  ~ Título, ~ Ano, ~ Contratante, ~ Local,
+  
+  "A Distribuição de Peixes e Invertebrados no Lago Guaíba como Subsídio para o Licenciamento Ambiental", "2019-2020", "PUCRS-FEPAM", "Porto Alegre-RS",
+  "Integração dos Resultados Biológicos. in: Projeto de Monitoramento Ambiental da Reserva Biológica Marinha do Arvoredo e Entorno. Relatório Técnico Final.", "2017-2018", "MAArE - Petrobrás", "Florianópolis-SC",
+  "Ictiofauna e Produtividade Pesqueira da Região de Madre de Deus BA - Refinaria Landulpho Alves (RLAM).","2015-2018","NSF-Bioensaios-Petrobrás","Madre de Deus-BA"
+) %>% 
+  detailed_entries(Contratante, Ano,  Título,Local)
+
+```
+
+# Projetos
+
+```{r proj}
+tribble(
+  ~ name, ~ acronym, ~ date, ~study_area,
+  "Subsídios para o plano controle do coral invasor coral-sol (Tubastraea coccinea) na Reserva Biológica Marinha do Arvoredo: aspectos reprodutivos e modelagem da distribuição potencial", "UFSC","2016-Atual","SC-Brasil",
+  "Modelos de Nicho ecológico e Distribuição Potencial de espécies e os efeitos das mudanças climáticas", "UFSC","2016-Atual","SC-Brasil",
+  "Modelos de Nicho ecológico e Distribuição Potencial de espécies e os efeitos das mudanças climáticas", "UFSC","2016-Atual","SC-Brasil",
+  "Conhecimento da fauna bentônica marinha do sul do Brasil: quanto sabemos e como se distribui", "UFSC","2017-Atual","SC-Brasil",
+  "Projeto MAArE - Monitoramento Ambiental da Reserva Biológica Marinha do Arvoredo e Entorno", "UFSC","2017-2018","SC-Brasil",
+"Subsídios à gestão pesqueira do Lago Guaíba, RS: período reprodutivo, tamanho de primeira maturação, seletividade de captura e padrão sazonal de ocupação de hábitat de peixes importância econômica e ictiofauna acompanhante","PUCRS","2011-2015","SC-Brasil"
+  )%>% 
+  detailed_entries(acronym, date, name, study_area)  
+```
+
+
+# Habilidades Técnicas
+
+```{r}
+tribble(
+   ~type, ~ software, 
+  "Programação", "R language",
+  "Software", "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
+  "Other", "Markdown -- QuickTime -- Moodle"
+) %>% 
+  detailed_entries(what = software, with = type, .protect=FALSE)
+```
+
+# Idiomas
+
+```{r idioms}
+data.frame(
+  Skill = c("Leitura", "Escrita", "Escuta","Fala"),
+  Português = cell_spec(c(rep("Nativo", 4)), 'latex', color = '#4cb8dc'),
+  Inglês = cell_spec(c("C1","B1","C1","B2"), 'latex', color = '#009acd'),
+  Espanhol = cell_spec(c("B1","A2","B1","A2"), 'latex', color = '#005c7b')
+) %>%
+  kable(booktabs = T, align = 'c', escape = F, format = "latex") %>%
+  kable_styling(full_width = F, font_size = 12) %>% #, latex_options = 'striped') %>%
+  footnote(
+    footnote_as_chunk = T,
+    general_title = " ",
+    general = "\\\\tiny CEFR: A1/A2: Básico. B1/B2: Intermediário. C1/C2: Proficiente/ TOEFL-IBT 88 pts (2014)/ Teste de Proficiência em Espanhol PUCRS (2013)",
+    escape = F
+  ) %>%
+  column_spec(column = 1:6, width = '2.4cm') %>% 
+  add_header_above(' ',line = F) %>%
+  row_spec(0, extra_latex_after = "\\arrayrulecolor{white}\\hline")
+```
+
+# Informações Adicionais
+Para acessar o CV na plataforma Lattes use o link no topo deste arquivo ou acesse (http://lattes.cnpq.br/5960267776845701). Se desejar alguma referência profissional, entre em contato com a Dra. Andrea Santarosa Freire **(freireandreas@gmail.com)**, coordenadora do Programa de Pós-gradução em Ecologia da UFSC.  
+

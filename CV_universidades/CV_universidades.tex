@@ -1,0 +1,185 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\definecolor{awesome}{HTML}{009ACD}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\photo{foto\_pht.png}
+\name{Thiago C.L. Silveira}{}
+
+\position{Pesquisador \textbar{} Biólogo \textbar{} Dr.~Zoologia}
+\address{Florianópolis - Brasil\\
+Brasileiro - 18/05/1978}
+
+\mobile{+55 48 99113 5385}
+\email{\href{mailto:silveira.tcl@gmail.com}{\nolinkurl{silveira.tcl@gmail.com}}}
+\homepage{lattes.cnpq.br/5960267776845701}
+\orcid{0000-0002-3163-479X}
+\researchgate{Thiago\_Cesar\_Silveira2}
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+\usepackage{booktabs}
+
+% Templates for detailed entries
+% Arguments: what when with where why
+\usepackage{etoolbox}
+\def\detaileditem#1#2#3#4#5{%
+\cventry{#1}{#3}{#4}{#2}{\ifx#5\empty\else{\begin{cvitems}#5\end{cvitems}}\fi}\ifx#5\empty{\vspace{-4.0mm}}\else\fi}
+\def\detailedsection#1{\begin{cventries}#1\end{cventries}}
+
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3{\cvhonor{}{#1}{#3}{#2}}
+\def\briefsection#1{\begin{cvhonors}#1\end{cvhonors}}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+
+\usepackage{multicol} \usepackage{colortbl} \usepackage{hhline} \definecolor{light-gray}{gray}{0.95}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+\makecvfooter
+  {October, 2020}
+    {Thiago C.L. Silveira~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
+
+
+
+\section{Sobre mim}\label{sobre-mim}
+
+Possuo graduação em Ciências Biológicas, mestrado em Biologia Animal
+(UFRGS) e doutorado em Zoologia (PUCRS - Doutorado Sanduíche em
+Walles-UK). Atualmente trabalho como bolsista de pós-doutorando PNPD no
+Programa de Pós-Graduação em Ecologia (UFSC). Tenho experiência na área
+de ecologia aquática com ênfase em invertebrados, peixes, modelos
+espaciais e modelos de nicho usando software R e SIG em meu campo de
+pesquisa.\\
+Minha experiência de ensino é em nível de pós-graduação, variando de
+estatística aplicada à Ecologia e práticas ecológicas em Ecologia de
+Campo.
+
+\section{Habilidades e Interesses}\label{habilidades-e-interesses}
+
+Minha formação é em ciências biológicas, com ênfase em Zoologia e
+Ecologia. Como pós-doutorando no PPG Ecologia-UFSC fui incentivado a
+lecionar, e, ao longo de cinco anos (2016-atual), essa experiência tem
+sido muito enriquecedora na minha formação como professor.
+
+\section{Formação}\label{formauxe7uxe3o}
+
+\detailedsection{\detaileditem{Ciências Biológicas}{1999-2004}{PUCRS}{Porto Alegre, RS}{\empty}\detaileditem{Mestrado em Biologia Animal}{2005-2007}{UFRGS}{Porto Alegre, RS}{\empty}\detaileditem{Doutorado em Zoologia}{2011-2015}{PUCRS}{Porto Alegre, RS}{\empty}}
+
+\section{Experiência Docente}\label{experiuxeancia-docente}
+
+\detailedsection{\detaileditem{Ecology lectures (ministrada em Inglês)}{2019-2019}{UFSC}{Florianópolis-SC}{\empty}\detaileditem{Distribuição de Espécies e Modelagem de Nicho (ministrada em Português)}{2016-2018}{UFSC}{Florianópolis-SC}{\empty}\detaileditem{Estatística Aplicada a Análise Ambiental (ministrada em Português)}{2016-2019}{UFSC}{Florianópolis-SC}{\empty}\detaileditem{Introducão a Análise Multivariate (ministrada em Português)}{2016-2019}{UFSC}{Florianópolis-SC}{\empty}\detaileditem{Ecologia de Campo (ministrada em Português)}{2016-2019}{UFSC}{Florianópolis}{\empty}}
+\# Artigos
+
+\section{Informações Adicionais}\label{informauxe7uxf5es-adicionais}
+
+To access my complete CV, please go to my Lattes CV on
+\href{http://lattes.cnpq.br/5960267776845701}{\textbf{http://lattes.cnpq.br/5960267776845701}}.
+If you want a personal reference, please get in touch with Dra. Andrea
+Santarosa Freire
+\textbf{(\href{mailto:freireandreas@gmail.com}{\nolinkurl{freireandreas@gmail.com}})},
+coordinator of the Post Graduation Program in Ecology - UFSC.
+
+\end{document}

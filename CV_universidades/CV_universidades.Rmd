@@ -1,0 +1,108 @@
+---
+name: Thiago C.L. Silveira
+position: "Pesquisador | Biólogo | Dr. Zoologia"
+address: |
+         | Florianópolis - Brasil
+         | Brasileiro -  18/05/1978
+profilepic: foto_pht.png
+phone: +55 48 99113 5385
+email: silveira.tcl@gmail.com
+researchgate: Thiago_Cesar_Silveira2
+orcid: 0000-0002-3163-479X
+www: lattes.cnpq.br/5960267776845701
+headcolor: 009ACD
+date: "`r format(Sys.time(), '%B, %Y')`"
+
+output: vitae::awesomecv
+always_allow_html: yes
+header-includes:
+  \usepackage{multicol}
+  \usepackage{colortbl}
+  \usepackage{hhline}
+  \definecolor{light-gray}{gray}{0.95}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(ggplot2)
+library(dplyr)
+library(sf)
+library(rworldmap)
+library(rworldxtra)
+library(stplanr)
+library(ggrepel)
+library(emojifont)
+library(kableExtra)
+library(huxtable)
+library(gridExtra)
+```
+# Sobre mim
+
+Possuo graduação em Ciências Biológicas, mestrado em Biologia Animal (UFRGS) e doutorado em Zoologia (PUCRS - Doutorado Sanduíche em Walles-UK). Atualmente trabalho como bolsista de pós-doutorando PNPD no Programa de Pós-Graduação em Ecologia (UFSC). Tenho experiência na área de ecologia aquática com ênfase em invertebrados, peixes, modelos espaciais e modelos de nicho usando software R e SIG em meu campo de pesquisa.  
+Minha experiência de ensino é em nível de pós-graduação, variando de estatística aplicada à Ecologia e práticas ecológicas em Ecologia de Campo.
+
+
+```{r edu_plot, fig.align='center', fig.width=6.5, fig.height=3, fig.showtext=TRUE}
+
+load.fontawesome()
+uni <- fontawesome('fa-university')
+work <- fontawesome('fa-briefcase')
+world <- getMap(resolution = "high")
+world <- world %>% st_as_sf()
+cities<- st_sfc(
+  st_point(c(-30.1087957,-51.3172281)),
+  st_point(c(53.2209389,-4.1777092)),
+  st_point(c(-27.5713144,-48.7504738))
+) %>%
+  st_sf(name = c('Porto Alegre, SC', 'Bangor, UK', 'Florianópolis, SC')) %>%
+  st_set_crs(4326) %>%
+  mutate(label = c(uni, uni, work))
+
+routes <- cities %>%
+  points2line() %>%
+  theme(panel.grid = element_line(color = 'transparent'),
+  plot.margin = margin(-1, 0, -1, 0, "cm"),
+  axis.text = element_blank(),
+  axis.title = element_blank()
+  )
+```
+
+# Habilidades e Interesses
+
+Minha formação é em ciências biológicas, com ênfase em Zoologia e Ecologia. Como pós-doutorando no PPG Ecologia-UFSC fui incentivado a lecionar, e, ao longo de cinco anos (2016-atual), essa experiência tem sido muito enriquecedora na minha formação como professor. 
+
+# Formação
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Ciências Biológicas", "1999-2004", "PUCRS", "Porto Alegre, RS",
+  "Mestrado em Biologia Animal", "2005-2007", "UFRGS", "Porto Alegre, RS",
+  "Doutorado em Zoologia", "2011-2015", "PUCRS", "Porto Alegre, RS",
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Experiência Docente
+```{r}
+library(tibble)
+tribble(
+  ~ Disciplina, ~ Ano, ~ Instituição, ~ Local,
+  "Ecology lectures (ministrada em Inglês)", "2019-2019", "UFSC", "Florianópolis-SC",
+  "Distribuição de Espécies e Modelagem de Nicho (ministrada em Português)", "2016-2018",    "UFSC", "Florianópolis-SC",
+  "Estatística Aplicada a Análise Ambiental (ministrada em Português)", "2016-2019", "UFSC",   "Florianópolis-SC",
+  "Introducão a Análise Multivariate (ministrada em Português)", "2016-2019", "UFSC", "Florianópolis-SC",
+  "Ecologia de Campo (ministrada em Português)", "2016-2019", "UFSC", "Florianópolis",
+) %>% 
+  detailed_entries(Disciplina, Ano, Instituição, Local)
+```
+# Artigos 
+
+```{r}
+
+
+```
+# Informações Adicionais
+To access my complete CV, please go to my Lattes CV on [**http://lattes.cnpq.br/5960267776845701**](http://lattes.cnpq.br/5960267776845701). If you want a personal reference, please get in touch with Dra. Andrea Santarosa Freire **(freireandreas@gmail.com)**, coordinator of the Post Graduation Program in Ecology - UFSC.  
+

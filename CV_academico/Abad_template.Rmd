@@ -4,7 +4,7 @@ position: "Pesquisador | Biólogo | Dr. Zoologia"
 address: |
          | Florianópolis - Brasil
          | Brasileiro -  18/05/1978
-profilepic: eu2.jpg
+profilepic: eu_2021.png
 phone: +55 48 99113 5385
 email: "silveira.tcl@gmail.com"
 researchgate: Thiago_Cesar_Silveira2
@@ -12,14 +12,23 @@ orcid: 0000-0002-3163-479X
 www: lattes.cnpq.br/5960267776845701
 headcolor: 009ACD
 date: "`r format(Sys.time(), '%B %Y')`"
-output: vitae::awesomecv
+output: 
+  vitae::awesomecv:
+    keep_tex: false
 always_allow_html: yes
 header-includes:
+  \usepackage{float}
   \usepackage{multicol}
   \usepackage{colortbl}
+  \arrayrulecolor{white}
   \usepackage{hhline}
   \definecolor{light-gray}{gray}{0.95}
 ---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
@@ -30,19 +39,24 @@ library(sf)
 library(rworldmap)
 library(stplanr)
 library(ggrepel)
-library(emojifont)
 library(fontawesome)
+library(emojifont)
 library(kableExtra)
 library(huxtable)
 library(gridExtra)
 #https://github.com/loreabad6/R-CV based on
+
 ```
-# Minha Caminhada
+
+
+
+Minha Caminhada
+================================================================================
 ```{r edu_plot,fig.align='center', fig.width=6.5, fig.height=3, fig.showtext=TRUE}
 load.fontawesome()
 uni <- fontawesome('fa-university')
 work <- fontawesome('fa-briefcase')
-world <- getMap(resolution = "high")
+world <- getMap(resolution = "low") #(resolution = "high")
 world <- world %>% st_as_sf()
 cities <- st_sfc(
   st_point(c(-54.3172281, -30.1087957)),
@@ -80,10 +94,12 @@ ggplot(data = world) +
     axis.title = element_blank()
   )
 ```
-# Sobre mim
-Possuo graduação em Ciências Biológicas, Mestrado em Biologia Animal (UFRGS) e Doutorado em Zoologia (PUCRS - Doutorado Sanduíche/Gales-UK). Atualmente trabalho como bolsista de pós-doutorado PNPD/CAPES no Programa de Pós-Graduação em Ecologia da UFSC. Tenho experiência na área de ecologia aquática com ênfase em invertebrados, peixes, modelos espaciais e de nicho. Tenho experiência na produção de trabalhos técnicos envolvendo inventários de fauna aquática marinha e análise de bancos de dados. Minha experiência de ensino é em nível de pós-graduação, variando entre estatística aplicada à ecologia, bancos de dados e práticas ecológicas.
+Sobre mim
+================================================================================
+Possuo graduação em Ciências Biológicas, Mestrado em Biologia Animal (UFRGS) e Doutorado em Zoologia (PUCRS - Doutorado Sanduíche/Gales-UK). Atualmente sou pós-doc no Programa de Pós-Graduação em Ecologia da UFSC junto ao [Laboratório de Abientes Recifais - LABAR](https://labarufsc.weebly.com/). Tenho experiência na área de ecologia aquática com ênfase em invertebrados, peixes, invasões biológicas, modelagem espaciaal e de nicho. Tenho experiência na produção de trabalhos técnicos envolvendo inventários de fauna aquática marinha e análise de bancos de dados. Minha experiência de ensino é em nível de pós-graduação, variando entre estatística aplicada à ecologia, bancos de dados e práticas ecológicas.
 
-# Formação
+Formação
+================================================================================
 ```{r}
 tribble(
    ~ Year, ~ Institution,~ Degree, ~ Where,
@@ -94,7 +110,8 @@ tribble(
   detailed_entries( Degree, Institution, Year, Where)
 ```
 
-# Formação Complementar
+Formação Complementar
+================================================================================
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
@@ -107,10 +124,14 @@ tribble(
   detailed_entries( Institution, Year, Degree, Where)
 ```
 
-# Publicações Selecionadas
-```{r }
+Publicações Selecionadas
+================================================================================
+```{r pi }
 tribble(
   ~ Autores, ~ Ano, ~ Título, ~ Revista,
+  "Fontoura NF, Alvez TP, Silveira TCL","2021", "A distribuição de peixes e invertebrados no lago Guaíba como subsídio para o licenciamento ambiental.","1. ed. Porto Alegre: Edipucrs, 164p.",
+  "Tagliari, MM, Vieilledent G, Alaves J ; SILVEIRA TCL, PERONI, N", "2021", "Relict populations of Araucaria angustifolia will be isolated, poorly protected, and unconnected under climate and land-use change in Brazil", "Biodiversity and Conservation, 30, 3665",
+  "Crivellaro M, Silveira TCL, Custodio FY, Bataglim L, Deuchon M, Carvalhal A. Ramos BS","2020", "Fighting on the edge: reproductive effort and population structure of the invasive coral Tubastraea coccinea in its southern Atlantic limit of distribution following control activities.", "Bilogical Invasions 23, 811",
   "das Neves Lopes M, Decarli CJ, Pinheiro-Silva L, Silveira TCL, Leite NK, Petrucio MM", "2020","Urbanization increases carbon concentration and pCO2 in subtropical streams.", "Environ Sci Pollut Res, 1",
   "Gouvêa LP, Assis J, Gurgel CFD, Serrão EA, Silveira TCL, Santos R, et al.","2020" ,"Golden carbon of Sargassum forests revealed as an opportunity for climate change mitigation.", "Sci Total Environ, 138745",
   "Fontoura NF, Schulz UH, Alves TP, Silveira TCL, Pereira JJ, Antonetti DA.","2019", "How Far Upstream: A Review of Estuary-Fresh Water Fish Movements in a Large Neotropical Basin.", "Front Mar Sci,6,39.", 
@@ -125,7 +146,10 @@ tribble(
   detailed_entries(Autores,  Ano,  Título,  Revista)
 ```
 
-# Principais Experiências Docentes
+\newpage
+
+Principais Experiências Docentes
+================================================================================
 ```{r }
 library(tibble)
 tribble(
@@ -140,21 +164,22 @@ tribble(
   detailed_entries( Instituição, Ano, Disciplina, Local)
 ```
 
-# Principais Trabalhos Técnicos
-```{r }
+Principais Trabalhos Técnicos
+================================================================================
+```{r trab tec}
 tribble(
   ~ Título, ~ Ano, ~ Contratante, ~ Local,
-  
+  "Caracterização Ambiental do Trecho 17 do PMR - Ictiofauna, Ictioplâncton e Invertebrados Bentônicos - Impactos dos rejeitos da barragem de Fundão no Ecossitema Marinho", "2020", "Golder Associates", "Espírito Santo", 
   "A Distribuição de Peixes e Invertebrados no Lago Guaíba como Subsídio para o Licenciamento Ambiental", "2019-2020", "PUCRS-FEPAM", "Porto Alegre-RS",
   "Integração dos Resultados Biológicos. in: Projeto de Monitoramento Ambiental da Reserva Biológica Marinha do Arvoredo e Entorno. Relatório Técnico Final.", "2017-2018", "MAArE - Petrobrás", "Florianópolis-SC",
   "Ictiofauna e Produtividade Pesqueira da Região de Madre de Deus BA - Refinaria Landulpho Alves (RLAM).","2015-2018","NSF-Bioensaios-Petrobrás","Madre de Deus-BA"
 ) %>% 
-  detailed_entries(Contratante, Ano,  Título,Local)
+  detailed_entries(Contratante, Ano,  Título, Local)
 
 ```
 
-# Projetos
-
+Projetos
+================================================================================
 ```{r proj}
 tribble(
   ~ name, ~ acronym, ~ date, ~study_area,
@@ -168,41 +193,60 @@ tribble(
   detailed_entries(acronym, date, name, study_area)  
 ```
 
+\newpage
 
-# Habilidades Técnicas
+Habilidades 
+================================================================================
 
-```{r}
+\smallskip
+
+<!-- 
+Técnicas
+---------------------------------
+-->
+```{r skills,  results='markup'}
 tribble(
    ~type, ~ software, 
-  "Programação", "R language",
+  "Linguagens", "R -- HTML -- CSS" ,
+  "Estatísitca", "GLM -- Randon Forests -- Abordagens Multivariadas",
   "Software", "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
-  "Other", "Markdown -- QuickTime -- Moodle"
+  "Estudando", "Javascript -- Python -- OpenDrift (Individual Based Moldelling)"
 ) %>% 
   detailed_entries(what = software, with = type, .protect=FALSE)
 ```
 
-# Idiomas
 
-```{r idioms}
+\smallskip
+<!--
+Idiomas
+---------------------------------
+
+```{r idiomas, include = FALSE}
+
 data.frame(
   Skill = c("Leitura", "Escrita", "Escuta","Fala"),
   Português = cell_spec(c(rep("Nativo", 4)), 'latex', color = '#4cb8dc'),
   Inglês = cell_spec(c("C1","B1","C1","B2"), 'latex', color = '#009acd'),
   Espanhol = cell_spec(c("B1","A2","B1","A2"), 'latex', color = '#005c7b')
 ) %>%
-  kable(booktabs = T, align = 'c', escape = F, format = "latex") %>%
-  kable_styling(full_width = F, font_size = 12) %>% #, latex_options = 'striped') %>%
+  
+  kable(booktabs = F, align = 'c', escape = F) %>% #format = latex
+  kable_styling(full_width = F, font_size = 12, latex_options = 'striped') %>% #, latex_options = 'striped') %>%
   footnote(
     footnote_as_chunk = T,
     general_title = " ",
     general = "\\\\tiny CEFR: A1/A2: Básico. B1/B2: Intermediário. C1/C2: Proficiente/ TOEFL-IBT 88 pts (2014)/ Teste de Proficiência em Espanhol PUCRS (2013)",
     escape = F
   ) %>%
-  column_spec(column = 1:6, width = '2.4cm') %>% 
-  add_header_above(' ',line = F) %>%
-  row_spec(0, extra_latex_after = "\\arrayrulecolor{white}\\hline")
-```
+  
+  column_spec(column = 1:6, width = '2.4cm') #%>% 
+  #add_header_above(' ',line = T) %>%
+  #row_spec(0, extra_latex_after = "\\arrayrulecolor{white}\\hline")
 
-# Informações Adicionais
+```
+-->
+
+Informações Adicionais
+================================================================================
 Para acessar o CV na plataforma Lattes use o link no topo deste arquivo ou acesse (http://lattes.cnpq.br/5960267776845701). Se desejar alguma referência profissional, entre em contato com a Dra. Andrea Santarosa Freire **(freireandreas@gmail.com)**, coordenadora do Programa de Pós-gradução em Ecologia da UFSC.  
 

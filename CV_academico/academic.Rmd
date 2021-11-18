@@ -1,21 +1,22 @@
 ---
-name: Thiago Cesar L. Silveira
+name:  Thiago Cesar L. Silveira
 position: "Pesquisador | Biólogo | Dr. Zoologia"
 address: |
          | Florianópolis - Brasil
          | Brasileiro -  18/05/1978
-profilepic: eu_2021.png
-phone: +55 48 99113 5385
+profilepic: eu_2021.png         
+headcolor: 009ACD
 email: "silveira.tcl@gmail.com"
-researchgate: Thiago_Cesar_Silveira2
 orcid: 0000-0002-3163-479X
-www: "https://www.tsilveira.eco.br/"
-headcolor: "009ACD"
+researchgate: Thiago_Cesar_Silveira2
+
+www: tsilveira.eco.br
+twitter: silveiratcl
+github: silveiratcl 
+phone: +55 48 99113 5385
 date: "`r format(Sys.time(), '%B %Y')`"
-output: 
-  vitae::awesomecv:
-    keep_tex: false
-always_allow_html: yes
+output: vitae::awesomecv
+  
 header-includes:
   \usepackage{float}
   \usepackage{multicol}
@@ -25,10 +26,9 @@ header-includes:
   \definecolor{light-gray}{gray}{0.95}
 ---
 
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
 library(vitae)
 library(ggplot2)
 library(dplyr)
@@ -44,9 +44,8 @@ library(huxtable)
 library(gridExtra)
 #https://github.com/loreabad6/R-CV based on
 
+
 ```
-
-
 
 # Minha Caminhada
 
@@ -92,9 +91,11 @@ ggplot(data = world) +
     axis.title = element_blank()
   )
 ```
+
 # Sobre mim
 
 Possuo graduação em Ciências Biológicas, Mestrado em Biologia Animal (UFRGS) e Doutorado em Zoologia (PUCRS - Doutorado Sanduíche/Gales-UK). Atualmente sou pós-doc no Programa de Pós-Graduação em Ecologia da UFSC junto ao [*Laboratório de Abientes Recifais - LABAR*](https://labarufsc.weebly.com/). Tenho experiência na área de ecologia aquática com ênfase em invertebrados, peixes, invasões biológicas, modelagem espaciaal e de nicho. Tenho experiência na produção de trabalhos técnicos envolvendo inventários de fauna aquática marinha e análise de bancos de dados. Minha experiência de ensino é em nível de pós-graduação, variando entre estatística aplicada à ecologia, bancos de dados e práticas ecológicas.
+
 
 # Formação
 
@@ -121,8 +122,9 @@ tribble(
 ) %>% 
   detailed_entries( Institution, Year, Degree, Where)
 ```
-
 # Publicações Selecionadas
+
+Acesse meu [*CV Lattes*](http://lattes.cnpq.br/5960267776845701) para uma lista completa de publicações.
 
 ```{r publi}
 
@@ -145,6 +147,7 @@ tribble(
   detailed_entries(Autores,  Ano,  Título,  Revista)
 ```
 
+\newpage
 
 # Principais Experiências Docentes
 
@@ -191,69 +194,70 @@ tribble(
   detailed_entries(acronym, date, name, study_area)  
 ```
 
+\newpage
 
 # Habilidades 
 
+\smallskip
+
+Técnicas
+--------------------------------------------------------------------------------
 ```{r skills }
+#tribble(
+ #  ~type, ~ software, 
+  #"Linguagens", "R -- HTML -- CSS" ,
+  #"Estatísitca", "GLM -- Randon Forests -- Abordagens Multivariadas",
+  #"Software", "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
+  #"Estudando", "Javascript -- Python -- OpenDrift (Individual Based Moldelling)",
+  #"Outras", "GIT -- Leaflet -- Markdown"
+#) %>% 
+  #detailed_entries(what = software, with = type, .protect=FALSE)
+  
 tribble(
-   ~type, ~ software, 
-  "Linguagens", "R -- HTML -- CSS" ,
-  "Estatísitca", "GLM -- Randon Forests -- Abordagens Multivariadas",
-  "Software", "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
-  "Estudando", "Javascript -- Python -- OpenDrift (Individual Based Moldelling)",
-  "Outras", "GIT -- Leaflet -- Markdown"
+   ~ Linguagens, ~ Estatítica, ~ Software, ~ Estudando,
+  "R -- HTML -- CSS" ,
+  "GLM -- Randon Forests -- Abordagens Multivariadas",
+  "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
+  "Javascript -- Python -- OpenDrift (Individual Based Moldelling) -- GIT -- Leaflet -- Markdown"
 ) %>% 
-  detailed_entries(what = software, with = type, .protect=FALSE)
+
+
+
+  kable(booktabs = T, align = 'c', escape = F, format = "latex") %>%
+  kable_styling(full_width = F, font_size = 9, latex_options = "hold_position") %>% 
+  row_spec(0, bold = T, color = "#009acd") %>% 
+  row_spec(1, bold = F, color = "#7f7f7f") %>% 
+  column_spec(column = 1:4, width = '3.75cm')
 ```
 
+\smallskip
 
-```{r idiomas}
-tribble(
-   ~type, ~ software, 
-  "Linguagens", "R -- HTML -- CSS" ,
-  "Estatísitca", "GLM -- Randon Forests -- Abordagens Multivariadas",
-  "Software", "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
-  "Estudando", "Javascript -- Python -- OpenDrift (Individual Based Moldelling)",
-  "Outras", "GIT -- Leaflet -- Markdown"
+Idiomas
+--------------------------------------------------------------------------------
+```{r idiomas, results='markup'}
+
+data.frame(
+  Skill = c("Leitura", "Escrita", "Escuta","Fala"),
+  Português = c(rep("Nativo", 4)),
+  Inglês = c("C1","B1","C1","B2"),
+  Espanhol = c("B1","A2","B1","A2")
 ) %>% 
-  detailed_entries(what = software, with = type, .protect=FALSE)
-
-
-
-
-#data.frame(
-#  Skill = c("Leitura", "Escrita", "Escuta","Fala"),
-# Português = cell_spec(c(rep("Nativo", 4)), 'latex', color = '#4cb8dc'),
-#  Inglês = cell_spec(c("C1","B1","C1","B2"), 'latex', color = '#009acd'),
-#  Espanhol = cell_spec(c("B1","A2","B1","A2"), 'latex', color = '#005c7b')
-#) %>%
-
-#data.frame(
-#  Skill = c("Leitura", "Escrita", "Escuta","Fala"),
-#  Português = c(rep("Nativo", 4)),
-#  Inglês = c("C1","B1","C1","B2"),
-#  Espanhol = c("B1","A2","B1","A2")
-#) %>% 
   
-#  kable(booktabs = T, align = 'c', escape = F) %>% #format = latex
-#  kable_styling(full_width = F, font_size = 12) %>% #, latex_options = 'striped') %>%
-#  footnote(
-#    footnote_as_chunk = T,
-#    general_title = " ",
-#    general = "\\\\tiny CEFR: A1/A2: Básico. B1/B2: Intermediário. C1/C2: Proficiente/ TOEFL-IBT 88 pts (2014)/ Teste de Proficiência em Espanhol PUCRS (2013)",
-#    escape = F
-#  ) %>%
+  kable(booktabs = T, align = 'c', escape = F) %>% #format = latex
+  kable_styling(full_width = F, font_size = 12, latex_options = "hold_position") %>% #, latex_options = 'striped') %>%
+  footnote(
+    footnote_as_chunk = T,
+    general_title = " ",
+    general = "\\\\tiny CEFR: A1/A2: Básico. B1/B2: Intermediário. C1/C2: Proficiente/ TOEFL-IBT 88 pts (2014)/ Teste de Proficiência em Espanhol PUCRS (2013)",
+    escape = F
+  ) %>%
   
-#  column_spec(column = 1:6, width = '2.4cm')# %>% 
+  column_spec(column = 1:6, width = '2.8cm')# %>% 
   #add_header_above(' ',line = T) %>%
   #row_spec(0, extra_latex_after = "\\arrayrulecolor{white}\\hline")
 
-
-
 ```
-
 
 # Informações Adicionais
 
 Para acessar o CV na plataforma Lattes use o link no topo deste arquivo ou acesse (http://lattes.cnpq.br/5960267776845701). Se desejar alguma referência profissional, entre em contato com a Dra. Andrea Santarosa Freire **(freireandreas@gmail.com)**, coordenadora do Programa de Pós-gradução em Ecologia da UFSC.  
-

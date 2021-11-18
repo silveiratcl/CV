@@ -243,17 +243,21 @@ data.frame(
   Espanhol = c("B1","A2","B1","A2")
 ) %>% 
   
-  kable(booktabs = T, align = 'c', escape = F) %>% #format = latex
+  kable(booktabs = T, align = 'c', escape = F) %>%
   kable_styling(full_width = F, font_size = 12, latex_options = "hold_position") %>% #, latex_options = 'striped') %>%
+  row_spec(0, bold = T, color = "#009acd") %>% 
+  column_spec(column = 1:4, width = '3.75cm') %>% 
   footnote(
     footnote_as_chunk = T,
     general_title = " ",
     general = "\\\\tiny CEFR: A1/A2: Básico. B1/B2: Intermediário. C1/C2: Proficiente/ TOEFL-IBT 88 pts (2014)/ Teste de Proficiência em Espanhol PUCRS (2013)",
     escape = F
-  ) %>%
+  ) #%>%
   
-  column_spec(column = 1:6, width = '2.8cm')# %>% 
-  #add_header_above(' ',line = T) %>%
+ # column_spec(column = 1:4, width = '2.8cm')# %>% 
+ #row_spec(0, bold = T, color = "#009acd") %>% 
+ #row_spec(1, bold = F, color = "#7f7f7f")# %>%   
+ #add_header_above(' ',line = T) %>%
   #row_spec(0, extra_latex_after = "\\arrayrulecolor{white}\\hline")
 
 ```

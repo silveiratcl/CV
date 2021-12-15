@@ -10,7 +10,7 @@ email: "silveira.tcl@gmail.com"
 orcid: 0000-0002-3163-479X
 researchgate: Thiago_Cesar_Silveira2
 
-www: tsilveira.eco.br
+www: silveiratcl.github.io/site/
 twitter: silveiratcl
 github: silveiratcl 
 phone: +55 48 99113 5385
@@ -218,7 +218,7 @@ tribble(
   "R -- HTML -- CSS" ,
   "GLM -- Randon Forests -- Abordagens Multivariadas",
   "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
-  "Javascript -- Python -- OpenDrift (Individual Based Moldelling) -- GIT -- Leaflet -- Markdown"
+  "Javascript -- Python -- OpenDrift (Individual Based Moldelling) -- GIT -- Leaflet -- Markdown -- SQL"
 ) %>% 
 
 

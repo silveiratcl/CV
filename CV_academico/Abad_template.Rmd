@@ -9,8 +9,8 @@ phone: +55 48 99113 5385
 email: "silveira.tcl@gmail.com"
 researchgate: Thiago_Cesar_Silveira2
 orcid: 0000-0002-3163-479X
-www: "https://www.tsilveira.eco.br/"
-headcolor: "009ACD"
+www: "https://silveiratcl.github.io/site/"
+headcolor: 009ACD
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::awesomecv:
@@ -200,7 +200,7 @@ tribble(
   "Linguagens", "R -- HTML -- CSS" ,
   "Estatísitca", "GLM -- Randon Forests -- Abordagens Multivariadas",
   "Software", "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
-  "Estudando", "Javascript -- Python -- OpenDrift (Individual Based Moldelling)",
+  "Estudando", "Javascript -- Python -- OpenDrift (Individual Based Moldelling) -- SQL",
   "Outras", "GIT -- Leaflet -- Markdown"
 ) %>% 
   detailed_entries(what = software, with = type, .protect=FALSE)

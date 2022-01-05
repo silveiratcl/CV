@@ -215,7 +215,7 @@ Técnicas
   
 tribble(
    ~ Linguagens, ~ Estatítica, ~ Software, ~ Estudando,
-  "R -- HTML -- CSS" ,
+  "R -- HTML -- CSS -- Markdown" ,
   "GLM -- Randon Forests -- Abordagens Multivariadas",
   "QGIS -- RStudio -- Visual Studio Code -- Inkscape -- Mendeley",
   "Javascript -- Python -- OpenDrift (Individual Based Moldelling) -- GIT -- Leaflet -- Markdown -- SQL"

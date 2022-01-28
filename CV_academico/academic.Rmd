@@ -115,6 +115,7 @@ tribble(
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
   "Informática para Internet", "2021-atual", "SENAC-SC", "Florianópolis (1000h)", 
+  "Programming for Everybody (Getting Started with Python)", "2021-2021", "University of Michigan/Coursera", "on line (19h)",
   "Introdução à Modelagem Hierárquica", "2019-2019", "UFRGS", "Porto Alegre-RS (45h)",
   "Mergulho Avançado - PADI", "2017-2017", "PADI", "Florianópolis-SC (16h)",
   "Research Survey on the Research Vessel Prince Madog", "2014-2014", "BANGOR University", "Bangor-UK (100h)",
